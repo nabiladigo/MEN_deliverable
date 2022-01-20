@@ -16,7 +16,10 @@ app.get('/', (req, res)=>{
     res.send('hello world');
 });
 
-app.get('/music/new', (req, res)=>{
+app.get('/new', (req, res)=>{
+    res.render('new.ejs');
+});
+app.get('/create', (req, res)=>{
     res.render('new.ejs');
 });
 
@@ -28,6 +31,11 @@ app.post('/music/', (req, res) =>{
          return res.redirect('/music');
     })
 })
+
+app.get("/*", (req, res) => {
+    const context = { error: req.error };
+    return res.status(404).render("404", context);
+});
 
 app.listen(PORT, () => 
     console.log(`listening for client requests on port${PORT}`));
