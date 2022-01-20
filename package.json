@@ -13,7 +13,6 @@
   "description": "# Part One. Create and Read.",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://git.generalassemb.ly/nabiladigo/MEN_Deliverable.git"
