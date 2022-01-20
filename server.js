@@ -3,6 +3,9 @@ const app = express();
 const PORT = 5000;
 const music = require('./models/music_model.js');
 
+
+require('./config/db.connection.js');
+
 app.set('view engine', 'ejs');
 // middleware
 app.use(express.static('puplic'));
