@@ -1,7 +1,8 @@
 const express =require('express');
 const app = express();
 const PORT = 5000;
-// const music = require('./models/music.js');
+const music = require('./models/music_model.js');
+
 app.set('view engine', 'ejs');
 // middleware
 app.use(express.static('puplic'));
@@ -16,19 +17,20 @@ app.get('/', (req, res)=>{
     res.send('hello world');
 });
 
+
 app.get('/new', (req, res)=>{
     res.render('new.ejs');
 });
-app.get('/create', (req, res)=>{
-    res.render('new.ejs');
+app.get('/music', (req, res)=>{
+    res.render('index.ejs');
 });
 
-app.post('/music/', (req, res) =>{
-    products.create(req.body, (error, createdProduct) =>{
+app.post('/music', (req, res) =>{
+    music.create(req.body, (error, createdMusic) =>{
         if(error) return console.log(error);
 
-         console.log(createdProduct);
-         return res.redirect('/music');
+         console.log(createdMusic);
+        res.redirect('/music');
     })
 })
 
