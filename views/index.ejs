@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+</head>
+<body>
+
+    <section class="hero is-medium has-background-light">
+        <div class="hero-body">
+            <p class="title">All Songs</p>
+        </div>
+    </section>
+    
+    <main class="container is-max-widescreen">
+        <div class="columns is-multiline p-5">
+            <% for(let idx = 0; idx < music.length; idx++){ %> 
+                <% const music = music[idx] %>
+                
+                <div class="column is-one-third">
+                    <article class="card">
+                        <section class="card-image">
+                            <figure class="image is-3by3">
+                                <img src="<%= music.image %>" alt="Placeholder image" />
+                            </figure>
+                        </div>
+                    </section>
+                    <div class="card-content">
+                        <div class="content">
+                            <h3>
+                                <a href="/music/<%= music.id %>"><%= music.song %> </a>
+                            </h3>
+                            
+                            <p>$<%= music.singer %></p>
+                            <p>$<%= music.date %></p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <% } %>
+        </div>
+    </main>
+    
+</body>
+</html>
