@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html>
     
-
+<body>
         <section class="hero-is-medium has-background-light">
             <div class="hero-body">
                 <h1 class="title">New Music page</h1>
             </div>
         </section>
-            <form action="/music" method="POST">
+            <form action="/songs" method="POST">
                 <div class="field">
-                    <label class="label">Music Name</label>
+                    <label class="label">Song Title</label>
                     <div class="control">
                         <input
                             class="input"
                             type="text"
-                            placeholder="My new favorite product"
-                            name="name"
+                            placeholder="new song"
+                            name="title"
                         />
                     </div>
                 </div>
         
                 <div class="field">
-                    <label class="label">Product Price</label>
+                    <label class="label">Singer</label>
                     <div class="control">
-                        <input class="input" type="number" placeholder="32" name="price" />
+                        <input class="input" type="text" placeholder="singer" name="name" />
                     </div>
                 </div>
         
                 <div class="field">
-                    <label class="label">Product Image</label>
+                    <label class="label">Song Image</label>
                     <div class="control">
                         <input
                             class="input"
@@ -39,20 +39,20 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Product Description</label>
+                    <label class="label">Date of release</label>
                     <div class="control">
                         <input
                             class="input"
                             type="text"
-                            placeholder="Tell the Users all about this"
-                            name="descrption"
+                            placeholder="0000"
+                            name="date"
                         />
                     </div>
                 </div>
         
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-info">Create Music</button>
+                        <button class="button is-info">Create Song</button>
                     </div>
                 </div>
             </form>
