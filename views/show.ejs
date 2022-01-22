@@ -55,6 +55,11 @@
           <h3> <%= song.title %></h3>
           <small><%= song.singer %></small>
           <small><%= song.date %></small>
+          <div class="field mt-5 is-grouped">
+            <p class="control">
+              <form action="/songs/<%= song.id %>" method="POST">
+                  <input class="button is-danger" type="submit" value="	Delete Product"/>                    
+              </form>
           
         </div>
       </div>

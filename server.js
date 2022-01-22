@@ -58,11 +58,19 @@ app.get('/songs/:songId', (req, res) => {
             next();
         }
        
-        res.render('show.ejs', {songs: allSong});
+        res.render('show.ejs');
     });
     
 });
 
+app.delete('/songs/:songId', (req, res) => {
+    songs.findByIdAndDelete( req.params.songId, (error, deletedSong) => {
+        if (error) return console.log(error);
+    
+        console.log(deletedSong);
+        return res.redirect('/songs');
+    });
+});
 
 app.get("/*", (req, res) => {
     const context = { error: req.error };
