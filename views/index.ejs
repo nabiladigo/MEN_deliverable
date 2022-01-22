@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music</title>
+    <title>Songs</title>
 </head>
 <body>
 
     <section class="hero is-medium has-background-light">
         <div class="hero-body">
-            <p class="title">All Songs</p>
+            <p class="title"> All Songs</p>
         </div>
     </section>
     
     <main class="container is-max-widescreen">
         <div class="columns is-multiline p-5">
-            <% for(let idx = 0; idx < songs.length; idx++){ %> 
-                <% const songs = songs[idx] %>
+            <% for(let idx = 0; idx < songs.length; idx++){ %> <% const song =
+                songs[idx] %>
                 
                 <div class="column is-one-third">
                     <article class="card">
@@ -30,11 +30,11 @@
                     <div class="card-content">
                         <div class="content">
                             <h3>
-                                <a href="/songs/<%= songs.id %>"><%= songs.song %> </a>
+                                <a href="/songs/<%= song.id %>"><%= song.title %> </a>
                             </h3>
                             
-                            <p>$<%= songs.singer %></p>
-                            <p>$<%= songs.date %></p>
+                            <p><%= song.singer %></p>
+                            <p><%= song.date %></p>
                         </div>
                     </div>
                 </article>

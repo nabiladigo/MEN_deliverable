@@ -2,13 +2,13 @@ const express =require('express');
 const app = express();
 // const methodOverride = require('method-override');
 // const controllers = require('./controllers');
-
+const songs= require('./models/song_model.js')
 const PORT = 5000;
 
 
-// app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 // // middleware
-// app.use(express.static('puplic'));
+app.use(express.static('puplic'));
 app.use(express.urlencoded({extended: false}));
 // app.use(methodOverride('_method'))
 // app.use('/songs', controllers.song);
@@ -26,40 +26,39 @@ app.post('/songs/', (req, res) => {
 });
 
 app.get('/songs', (req, res) => {
-    // const allSongs = songs.find();
+    const allSongs = songs.find();
     // Song.find({}, (error, foundSong) => {
     //     if(error) return console.log(error);
 
     //     console.log(foundSong)
     //     context = {songs: foundSong
     //     }
-        res.render('index.ejs');
-        
-   
+        res.render('index.ejs', {songs: allSongs});
 });
+
 app.get('/songs/new', (req, res)=>{
     res.render('new.ejs');
 });
 
-app.post('/songs', (req, res) =>{
+app.post('/songs/', (req, res) =>{
     songs.create(req.body, (error, createdSong) =>{
         if(error) return console.log(error);
+
          console.log(createdSong);
         res.redirect('/songs');
     })
 })
 
-app.get('/:songId', (req, res) => {
+app.get('/songs/:songId', (req, res) => {
     
-    songs.findById(req.params.musicId, (error, foundSong) => {
+    songs.findById(req.params.songId, (error, foundSong) => {
         if (error) {
-            console.log(req.params)
             console.log(error);
-            const context = { error: error };
-            return res.status(404).render("404", context);
+            req.error= error;
+            next();
         }
        
-        res.render('show.ejs');
+        res.render('show.ejs', {songs: allSong});
     });
     
 });
