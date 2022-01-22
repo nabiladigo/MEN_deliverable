@@ -56,9 +56,13 @@
           <small><%= song.singer %></small>
           <small><%= song.date %></small>
           <div class="field mt-5 is-grouped">
+            <div class="control">
+              <a class="button is-info" href="/songs/<%= song.id %>/edit">Edit Product
+              </a>
+            </div>
             <p class="control">
-              <form action="/songs/<%= song.id %>" method="POST">
-                  <input class="button is-danger" type="submit" value="	Delete Product"/>                    
+              <form action="/songs/<%= song.id %>?_method=DELETE" method="POST">
+                  <input class="button is-danger" type="submit" value="	Delete Song"/>                    
               </form>
           
         </div>
