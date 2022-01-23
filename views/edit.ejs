@@ -1,112 +1,39 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <html>
+        <%- include ('./partials/head.ejs', {page: 'Edit songs'}) %>
+        <%- include ('./partials/nav.ejs') %>
+       
+        <section class="selector">
+            <form action="/songs/<%=song.id%>?_method=PUT" method="POST">
+                <fieldset>
+                    <legend>Edit song</legend>
+                        <div class="form-group">
+                          <label for="song-title">Song title</label>
+                          <input type="text" placeholder ="Song title" id="title" value="<%= song.title%>"/>
+                        </div>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="/styles/main.css" />
+                        <div class="form-group">
+                          <label for="singer-name">Singer</label>
+                          <input type="text" placeholder="singer" is="singer" value="<%= song.singer %>"/>
+                        </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+                        <div class="form-group">
+                          <label for="song-image">Song image</label>
+                          <input type="text" placeholder="song image" name="image" value="<%= song.image %> " />
+                        </div>
 
-    <script src="/scripts/bulma.js" defer></script>
-    <script src="/scripts/main.js" defer></script>
+                        <div class="form-group">
+                          <label for="date">Date of release</label>
+                          <input type="text" placeholder="date of release" name="date" value="<%= song.date %> " />
+                        </div>
 
-    <title>Songs Edit</title>
-  </head>
-  <body class="has-navbar-fixed-top">
-    <!-- https://bulma.io/documentation/components/navbar/#fixed-navbar -->
-    <nav
-      class="navbar is-dark is-fixed-top"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/songs/new"> All Songs </a>
-      </div>
-      <!-- this will add a link to the new route -->
-      <div class="navbar-end">
-        <a class="navbar-item" href="/songs/new"> New Song </a>
-      </div>
-    </nav>
-
-    <section class="hero is-medium has-background-light">
-      <div class="hero-body">
-        <h1 class="title">Edit song page</h1>
-      </div>
-    </section>
-
-    <section class="container is-max-widescreen p-5">
-      <!--  NOTE: action will be the route, method will be the HTTP verb-->
-      <form action="/songs/<%=song.id%>?_method=PUT" method="POST">
-        <div class="field">
-          <label class="label">Song title</label>
-          <div class="control">
-            <input
-              class="input"
-              type="text"
-              placeholder ="Song title"
-              name="name"
-              value="<%= song.title%> "
-            />
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Singer</label>
-          <div class="control">
-            <input
-              class="input"
-              type="text"
-              placeholder="singer"
-              name="singer"
-              value="<%= song.singer %>"
-            />
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="label">Song image</label>
-          <div class="control">
-            <input
-              class="input"
-              type="text"
-              placeholder="song image"
-              name="image"
-              value="<%= song.image %> "
-            />
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Date of release</label>
-          <div class="control">
-            <input
-              class="input"
-              type="text"
-              placeholder="date of release"
-              name="date"
-              value="<%= song.date %> "
-            />
-          </div>
-        </div>
-
-        <div class="field is-grouped">
-          <div class="control">
-            <a class="button is-info" href="/songs/<%= song.id %> "
-              >Cancel</a
-            >
-            <button class="button is-success">Edit Song</button>
-          </div>
-        </div>
-      </form>
-    </section>
-  </body>
-</html>
+                        <div class="control">
+                          <a class="button " href="/songs/<%= song.id %> ">Cancel</a>
+                          <button class="btn btn-success" type="edit ">Edit song</button>
+                        </div>
+                </fieldset>
+            </form>
+        </section>
+      </body>
+    </html>
+      

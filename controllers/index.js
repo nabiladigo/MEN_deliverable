@@ -1,3 +1,3 @@
 module.exports={
-    music: require('./music_controller')
+    song: require('./song_controller')
 }

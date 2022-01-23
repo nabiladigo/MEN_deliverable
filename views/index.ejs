@@ -1,47 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Songs</title>
-</head>
-<body>
-
-    <section class="hero is-medium has-background-light">
-        <div class="hero-body">
-            <p class="title"> All Songs</p>
-        </div>
-    </section>
+    <html lang="en">
+        <%- include ('./partials/head.ejs', {page: 'All songs'}) %>
+        <%- include ('./partials/nav.ejs') %>
     
-    <main class="container is-max-widescreen">
-        <div class="columns is-multiline p-5">
-            <% for(let idx = 0; idx < songs.length; idx++){ %> <% const song =
-                songs[idx] %>
-                
-                <div class="column is-one-third">
-                    <article class="card">
-                        <section class="card-image">
-                            <figure class="image is-3by3">
-                                <img src="<%= songs.image %>" alt="Placeholder image" />
-                            </figure>
-                        </div>
-                    </section>
-                    <div class="card-content">
-                        <div class="content">
-                            <h3>
-                                <a href="/songs/<%= song.id %>"><%= song.title %> </a>
-                            </h3>
-                            
-                            <p><%= song.singer %></p>
-                            <p><%= song.date %></p>
-                        </div>
-                    </div>
-                </article>
+            <div class="box"> 
+                <main class="container-fluid">
+                    <% for(let idx = 0; idx < songs.length; idx++){ %> <% const song =
+                        songs[idx] %>
+                            <div class="card " style="width: 50rem;" >
+                                <img class="card-img-top" src="<%= song.image %>" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        <a href="/songs/<%= song.id %>"><%= song.title %> </a>
+                                    </h3>
+                                    <h5><%= song.singer %></h5>
+                                    <p><%= song.date %></p>
+                                </div>
+                            </div>
+                    <% } %>
+                </main>
             </div>
-            <% } %>
-        </div>
-    </main>
     
-</body>
-</html>
+        </body>
+    </html>
