@@ -4,7 +4,7 @@
         <%- include ('./partials/nav.ejs') %>
        
         <section class="selector">
-            <form action="/songs/<%=song.id%>?_method=PUT" method="POST">
+            <form action="/songs/<%=song._id%>?_method=PUT" method="POST">
                 <fieldset>
                     <legend>Edit song</legend>
                         <div class="form-group">
@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="control">
-                          <a class="button " href="/songs/<%= song.id %> ">Cancel</a>
+                          <a class="button " href="/songs/<%= song._id %> ">Cancel</a>
                           <button class="btn btn-success" type="edit ">Edit song</button>
                         </div>
                 </fieldset>
